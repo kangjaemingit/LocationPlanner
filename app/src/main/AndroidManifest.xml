@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.locationplanner">
 
     <application
@@ -9,6 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LocationPlanner">
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="fkyhgginep"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MapActivity"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".DetailActivity" />
     </application>
 
 </manifest>
