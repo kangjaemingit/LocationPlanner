@@ -12,6 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraUpdate;
+import com.naver.maps.map.NaverMap;
+import com.naver.maps.map.overlay.LocationOverlay;
+import com.naver.maps.map.overlay.Marker;
 
 import org.w3c.dom.Text;
 
@@ -26,6 +33,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     double longitude;
 
     private Button delete;
+
+    MapFragmentActivity mapfragment;
+    FragmentManager manager;
+    LatLng Location;
+    Marker mk = new Marker();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,6 +77,19 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         tv_location.setText(str_location);
         tv_latitude.setText("" + latitude);
         tv_longitude.setText("" + longitude);
+
+        mapfragment = new MapFragmentActivity();
+
+        Bundle bundle = new Bundle();
+        bundle.putDouble("latitude", latitude);
+        bundle.putDouble("longitude", longitude);
+
+        mapfragment.setArguments(bundle);
+
+        manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.fragment_map, mapfragment).commit();
+
+
 
     }
 
