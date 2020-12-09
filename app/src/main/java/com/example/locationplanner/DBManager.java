@@ -14,7 +14,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table LPDB(memo text, location text)");
+        db.execSQL("create table LPDB(memo text, location text, lat real, lon real)");
     }
 
     @Override

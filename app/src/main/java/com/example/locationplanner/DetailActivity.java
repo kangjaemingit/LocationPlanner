@@ -22,6 +22,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     String str_memo;
     String str_location;
+    double latitude;
+    double longitude;
 
     private Button delete;
 
@@ -35,6 +37,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         TextView tv_memo = (TextView)findViewById(R.id.memo);
         TextView tv_location = (TextView)findViewById(R.id.location);
+        TextView tv_latitude = (TextView)findViewById(R.id.latitude);
+        TextView tv_longitude = (TextView)findViewById(R.id.longitude);
 
         Intent it = getIntent();
         str_memo = it.getStringExtra("it_memo");
@@ -47,6 +51,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             if(cursor.moveToNext()){
                 str_location = cursor.getString(cursor.getColumnIndex("location"));
+                latitude = cursor.getDouble(cursor.getColumnIndex("lat"));
+                longitude = cursor.getDouble(cursor.getColumnIndex("lon"));
             }
 
             sqlitedb.close();
@@ -57,6 +63,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         tv_memo.setText(str_memo);
         tv_location.setText(str_location);
+        tv_latitude.setText("" + latitude);
+        tv_longitude.setText("" + longitude);
 
     }
 

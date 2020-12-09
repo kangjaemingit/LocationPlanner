@@ -9,24 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="메모"
-            android:textSize="20dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/memo"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:paddingTop="30dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
         <TextView
@@ -49,9 +32,30 @@
         android:gravity="center"
         android:text="위치를 등록하려면 이곳을 클릭하세요."
         android:textColor="#ff0000"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="메모"
+            android:textSize="20dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/memo"/>
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btn_registry"
