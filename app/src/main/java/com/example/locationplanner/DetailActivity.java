@@ -78,6 +78,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         tv_latitude.setText("" + latitude);
         tv_longitude.setText("" + longitude);
 
+
+        // MapFragment에 위도, 경도 데이터 전송
         mapfragment = new MapFragmentActivity();
 
         Bundle bundle = new Bundle();
@@ -86,6 +88,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         mapfragment.setArguments(bundle);
 
+        // 프레그 먼트 교체(지도)
         manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.fragment_map, mapfragment).commit();
 

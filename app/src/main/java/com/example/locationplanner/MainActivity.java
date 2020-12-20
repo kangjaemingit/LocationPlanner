@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,10 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 앱 실행시 Background Service 실행
+        Intent serviceintent = new Intent(this, LocationService.class);
+        startService(serviceintent);
+
         register = findViewById(R.id.register);
         register.setOnClickListener(this);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.LocationPlanner);
+
 
         try{
             dbmanager = new DBManager(this);
@@ -76,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }  catch(SQLiteException e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
 
     }
 

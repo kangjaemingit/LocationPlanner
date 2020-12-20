@@ -35,8 +35,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         Intent it = getIntent();
         searchmap = it.getStringExtra("it_map");
-        lat = it.getDoubleExtra("it_lat", -5);
-        lon = it.getDoubleExtra("it_lon", -5);
+        lat = it.getDoubleExtra("it_lat", -1);
+        lon = it.getDoubleExtra("it_lon", -1);
 
         EditText et_location = (EditText)findViewById(R.id.location);
         et_location.setText(searchmap);
